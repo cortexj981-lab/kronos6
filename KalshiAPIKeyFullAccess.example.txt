@@ -1,0 +1,39 @@
+REPLACE-WITH-YOUR-KALSHI-API-KEY-ID
+-----BEGIN RSA PRIVATE KEY-----
+REPLACE-WITH-THE-PRIVATE-KEY-FILE-KALSHI-GAVE-YOU-WHEN-YOU-CREATED-THE-API-KEY
+THIS-IS-SEVERAL-LINES-OF-BASE64-TEXT-PASTE-ALL-OF-IT-INCLUDING-THE-BEGIN-AND
+END-LINES-EXACTLY-AS-YOU-RECEIVED-IT
+-----END RSA PRIVATE KEY-----
+
+HOW TO USE THIS FILE
+--------------------
+1. Copy it to the repository root as:  KalshiAPIKeyFullAccess.txt
+   (same folder as README.md - NOT inside scanner/ or scripts/)
+2. Replace line 1 with your Kalshi API Key ID. It looks like a UUID:
+   8 hex characters, then three groups of 4, then 12, separated by hyphens.
+3. Replace the block between BEGIN and END with the private key file Kalshi
+   gave you at the moment you created the API key. Kalshi shows the private
+   key exactly once and cannot show it again - if you lost it, delete that
+   API key in Kalshi and create a new one.
+4. Delete these instruction lines, or leave them: everything after the END
+   line is ignored by the parser.
+
+FORMAT RULES (enforced by scanner/kalshi-auth.ts)
+-------------------------------------------------
+- The first non-empty line before the PEM block must be the API Key ID.
+- The PEM block must start with a line beginning "-----BEGIN".
+- Keep the line breaks inside the PEM block exactly as Kalshi supplied them.
+  A PEM pasted onto one long line will not parse.
+
+SECURITY
+--------
+- KalshiAPIKeyFullAccess.txt is listed in .gitignore. Do not remove that entry
+  and do not commit the real file.
+- This key can place and cancel orders on a real, funded account. Treat it the
+  way you would treat the password to that account.
+- Never paste the contents of the real file into a chat window, an issue, a
+  screenshot, or a support request. Nobody needs to see it to help you.
+- The code never logs it: only a short non-secret prefix of the key ID is ever
+  printed. Keep it that way.
+- If you think it leaked, revoke the API key in your Kalshi account settings
+  immediately, then create a new one. Revoking is instant and free.

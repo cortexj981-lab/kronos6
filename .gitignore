@@ -1,0 +1,31 @@
+# CREDENTIALS — never commit
+KalshiAPIKeyFullAccess.txt
+*APIKey*
+*.pem
+*.key
+.env
+.env.*
+
+# ...but the credential TEMPLATE is meant to be in the repo. This negation has
+# to come after the *APIKey* rule above or git ignores the example too.
+!KalshiAPIKeyFullAccess.example.txt
+!.env.example
+
+# databases — the live ledger and its write-ahead files
+db/*.db
+db/*.db-shm
+db/*.db-wal
+db/*.db.bak*
+
+# logs
+*.log
+*.err
+
+# deps
+node_modules/
+
+# local scratch
+out/
+analysis/
+*.bak
+*.bak-*

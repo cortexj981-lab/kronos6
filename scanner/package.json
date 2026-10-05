@@ -1,0 +1,21 @@
+{
+  "name": "kronos6-scanner",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "Kronos 6 v1 - LIVE Kalshi execution of the frozen Kronos 5 ETH 15m DOWN strategy",
+  "scripts": {
+    "init-db": "node --experimental-sqlite --import tsx/esm init-db.ts",
+    "scan-once": "node --experimental-sqlite --import tsx/esm index.ts --once",
+    "start": "node --experimental-sqlite --import tsx/esm index.ts",
+    "test-fees": "node --experimental-sqlite --import tsx/esm fees.test.ts",
+    "typecheck": "tsc --noEmit"
+  },
+  "dependencies": {
+    "tsx": "^4.7.0",
+    "typescript": "^5.4.5"
+  },
+  "devDependencies": {
+    "@types/node": "^22.0.0"
+  }
+}
